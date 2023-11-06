@@ -1,0 +1,21 @@
+<%- include("partials/header"); -%>
+<!-- <h1>Home</h1> -->
+
+<div class="blogs">
+	<% if(blogs.length==0){ %>
+	<h2>No Blogs Found!!</h2>
+	<% }else{ %>
+<% blogs.forEach(function(blog){ %>
+
+	<h2 style="font-weight: bold;"><%=blog.title%></h2>
+	<p style="display: inline;"><%= blog.author.name + " " + blog.author.lastname +  " | " %></p>
+	<p style="display: inline;"><%= blog.author.email %></p>
+
+	<h4><%=blog.content.substring(0, 300) + " ..." %>
+		<a href="/blogs/<%=blog.title%>">Read More</a>
+	</h4>
+
+<% })} %>
+</div>
+
+<%- include("partials/footer"); -%>
